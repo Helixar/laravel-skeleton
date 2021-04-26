@@ -29,6 +29,10 @@ sudo chmod -R 775 storage storage/logs bootstrap/cache
 copy ``.env.example`` file to ``.env`` and configure it
 don't forget to set ``APP_DEBUG`` to **false** and run these commands :
 
+## Production
+
+run these commands :
+
 ```shell
 php artisan migrate:fresh
 php artisan config:cache
