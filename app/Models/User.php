@@ -37,4 +37,18 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopeInitial()
+    {
+        $string = str_replace(['-', '_', '.'], ' ', $this->name);
+        if(substr_count($string, ' ') > 0) {
+            $letters = '';
+            $words = explode(' ', $string);
+            foreach ($words as $letter) {
+                $letters .= $letter[0];
+            }
+            return $letters;
+        }
+        return $string[0];
+    }
 }
