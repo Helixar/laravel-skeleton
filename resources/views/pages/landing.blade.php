@@ -32,102 +32,10 @@
             </div>
         </div>
 
-        <div x-data="{ open: false }" class="relative pt-6 pb-16 sm:pb-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <nav class="relative flex items-center justify-between sm:h-10 md:justify-center" aria-label="Global">
-                    <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
-                        <div class="flex items-center justify-between w-full md:w-auto">
-                            <a href="#">
-                                <span class="sr-only">Laravel Skeleton</span>
-                                <img class="h-8 w-auto sm:h-8" src="{{ asset('storage/assets/images/logo/ls-indigo.png') }}" alt="">
-                            </a>
-                            <div class="-mr-1 flex items-center md:hidden">
-                                <button @click="open = !open" type="button"
-                                        class="bg-blue-gray-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                                        aria-expanded="false">
-                                    <span class="sr-only">Open main menu</span>
-                                    <!-- Heroicon name: outline/menu -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hidden md:flex md:space-x-10">
-                        <a href="#features" class="font-medium text-gray-500 hover:text-gray-400">Features</a>
-
-                        <a href="#" class="font-medium text-gray-500 hover:text-gray-400">Faq</a>
-
-                        <a href="#" class="font-medium text-gray-500 hover:text-gray-400">Docs</a>
-
-                        <a href="#" class="font-medium text-gray-500 hover:text-gray-400">Github</a>
-                    </div>
-                    <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
-                      <span class="inline-flex shadow">
-                        <a href="#" class="inline-flex mr-2 items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-gray-200 bg-indigo-500 hover:bg-indigo-700">
-                          Register
-                        </a>
-                        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-gray-200 bg-blue-gray-800 hover:bg-blue-gray-700">
-                          Log in
-                        </a>
-                      </span>
-                    </div>
-                </nav>
-            </div>
-
-            <!--
-              Mobile menu, show/hide based on menu open state.
-
-              Entering: "duration-150 ease-out"
-                From: "opacity-0 scale-95"
-                To: "opacity-100 scale-100"
-              Leaving: "duration-100 ease-in"
-                From: "opacity-100 scale-100"
-                To: "opacity-0 scale-95"
-            -->
-            <div x-show="open" @click.away="open = false"
-                 x-transition:enter="duration-150 ease-out"
-                 x-transition:enter-start="opacity-0 scale-95"
-                 x-transition:enter-end="opacity-100 scale-100"
-                 x-transition:leave="transition ease-in duration-300"
-                 x-transition:leave-end="opacity-100 scale-100"
-                 x-transition:leave-end="opacity-0 scale-95"
-                 class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-                <div class="rounded-lg shadow-md bg-blue-gray-800 ring-1 ring-black ring-opacity-5 overflow-hidden">
-                    <div class="px-5 pt-4 flex items-center justify-between">
-                        <div>
-                            <img class="h-8 w-auto" src="{{ asset('storage/assets/images/logo/ls-indigo.svg') }}" alt="">
-                        </div>
-                        <div class="-mr-2">
-                            <button type="button"  @click="open = false"
-                                    class="p-2 inline-flex items-center justify-center text-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                                <span class="sr-only">Close menu</span>
-                                <!-- Heroicon name: outline/x -->
-                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="px-2 pt-2 pb-3">
-                        <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200">Features</a>
-
-                        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200">Faq</a>
-
-                        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200">Docs</a>
-
-                        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200">Github</a>
-                    </div>
-                    <a href="#" class="block w-full px-5 py-3 text-center font-medium text-gray-200 bg-indigo-500 border-b border-indigo-800">
-                        Register
-                    </a>
-                    <a href="#" class="block w-full px-5 py-3 text-center font-medium text-gray-200 bg-indigo-500">
-                        Login
-                    </a>
-                </div>
-            </div>
-
+        <div class="relative pt-6 pb-16 sm:pb-24">
+{{--            @include('includes.header.menu.test')--}}
+            @include('includes.header.menu.desktop')
+            @include('includes.header.menu.mobile')
             <main class="mt-16 mx-auto max-w-7xl px-4 sm:mt-24">
                 <div class="text-center">
                     <h1 class="text-4xl tracking-tight font-extrabold text-gray-200 sm:text-5xl md:text-6xl">

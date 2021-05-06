@@ -13,4 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'pages.landing');
+Route::view('/', 'pages.landing')->name('home');
+Route::view('privacy', 'pages.statics.privacy')->name('privacy');
+Route::view('terms', 'pages.statics.terms')->name('terms');
