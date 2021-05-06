@@ -31,13 +31,15 @@ class RegisteredUserController extends Controller
      */
     public function store(RegisterRequest $request): RedirectResponse
     {
-        $validated = $request->validated();
+        $validated = collect($request->validated());
         $user = User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password'])
+            'name' => $validated->get('name'),
+            'email' => $validated->get('email'),
+            'password' => Hash::make($validated->get('password'),),
+            'terms' => now(),
+            'privacy' => now(),
+            'newsletter' => $validated->has('name') ? now() : null,
         ]);
-        //$user->roles()->attach(Role::where('name', 'Membres'));
         auth()->login($user);
         event(new Registered($user));
         return redirect(RouteServiceProvider::HOME);
